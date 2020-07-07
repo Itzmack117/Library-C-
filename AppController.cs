@@ -5,12 +5,13 @@ namespace Library
 {
   public class App
   {
+    public Shelf Shelf{get; set;}
     public bool Running { get; private set; }
 
     public void Run()
     {
-       while (Running)
-       {
+      //  while (Running == true)
+      //  {
           System.Console.WriteLine("Welcome to The Library! \nWhat Would you like to do? Check out Book / Stock / Quit");
         string input = Console.ReadLine().ToLower();
         switch (input)
@@ -29,7 +30,7 @@ namespace Library
           case "quit":
           case "q":
           case "end":
-            Running = false;
+            // Running = false;
             System.Console.WriteLine("Goodbye");
             break;
           default:
@@ -37,6 +38,20 @@ namespace Library
             break;
         }
        }
+           public void ChkOutBook()
+    {
+      Console.Clear();
+      Shelf.ViewBooks();
+      System.Console.WriteLine("Select a book to check out");
+      string selection = Console.ReadLine();
+      Book selectedBook = Shelf.checkBook(selection);
+      if (selectedBook == null)
+      {
+        System.Console.WriteLine("Invalid Selection");
+        return;
+      }
     }
   }
 }
+  
+// }
