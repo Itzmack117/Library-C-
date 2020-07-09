@@ -12,15 +12,15 @@ namespace Library.Models
       for (int i = 0; i < Books.Count; i++)
       {
         Book book = Books[i];
-        if (book.Available)
-        {
           System.Console.WriteLine($"{i + 1}. {book}");
-          // Console.WriteLine(taco.ToString());
-
-        }
       }
     }
-        internal Book checkBook(string selection)
+ public Shelf()
+    {
+      Books.Add(new Book("Heart Of Darkness", "Jonathan Konrad", 5));
+      Books.Add(new Book("1984", "George Orwell", 2));
+      // add 
+    }        internal Book checkBook(string selection)
     {
       int bookIndex;
       bool valid = Int32.TryParse(selection, out bookIndex);
@@ -30,6 +30,5 @@ namespace Library.Models
       }
       return Books[bookIndex - 1];
     }
-  }
   }
 }

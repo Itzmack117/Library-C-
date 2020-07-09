@@ -5,7 +5,7 @@ namespace Library
 {
   public class App
   {
-    public Shelf Shelf{get; set;}
+    public Shelf Shelf{get; set;} = new Shelf();
     public bool Running { get; private set; }
 
     public void Run()
@@ -20,7 +20,7 @@ namespace Library
           case "c":
           case "check out":
           case "checkout":
-            // ChkOutBook();
+            ChkOutBook();
             break;
           case "stock":
           case "s":
@@ -49,6 +49,8 @@ namespace Library
       {
         System.Console.WriteLine("Invalid Selection");
         return;
+      }else{
+        Console.WriteLine($"Enjoy reading {selectedBook.Title}, please take good care of it!");
       }
     }
   }
